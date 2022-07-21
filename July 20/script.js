@@ -36,15 +36,10 @@ const scrambled_words = [
 ];
 
 let unscrambled_words = [];
-
-for (const number of scrambled_numbers)
+for(let i=0; i<scrambled_numbers.length;i++)
 {
-	unscrambled_words.push(scrambled_words[number]);
+  unscrambled_words[scrambled_numbers[i]] = scrambled_words[i]
 }
-
-
-
-
 
 /* Your code - Note: save your unscrambled array of words as "unscrambled_words" */
 let secret_message = unscrambled_words.join(" ");
