@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This is a test</title>
+    <!-- Needed to render the icons from Bulma -->
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://use.fontawesome.com/5cd833ef09.js"></script>
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+
+    <style>
+        .console-font {
+          font-family: "Lucida Console", "Courier New", monospace;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- HERO -->
+    <section class="hero has-background-info-dark has-text-centered">
+    <div class="hero-body">
+        <p class="title is-size-1 has-text-light">This is a test</p>
+        <p class="subtitle is-size-3 has-text-light">A test</p>
+    </div>
+    </section>
+
+    <section class="hero has-background-success is-fullheight">
+
+        <div class="container mt-4">
+            <div class="columns is-centered">
+                <div class="column is-7">
+
+                    <!-- First box -->
+                    <div class="box has-text-centered">
+                        <p class="title is-9">
+                            I will guess your number.
+                        <p>
+
+                         <div class="columns is-centered">
+                            <div class="column">
+                                <button class="button" id = "for">
+                                    Uses break
+                                </button>
+                            </div>
+
+                            <div class="column">
+                                No Break
+                                <div class="columns">
+                                    <div class="column">
+                                        <button class="button" id = "while">
+                                            While
+                                        </button>
+
+                                    </div>
+                                    <div class="column">
+                                        <button class="button" id = "for-no-break">
+                                            For
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+
+            </div>
+
+
+            <div class="column">
+
+                    <!-- First box -->
+                    <div class="box has-text-centered">
+                        <p class="title is-6">
+                            Console Simulator:
+                        <p>
+                        <div class="box has-background-black">
+                            <p class="has-text-left console-font has-text-white" id = "console-sim">
+                                Nothing to see here yet...
+                            </p>
+                        </div>
+
+
+                    </div>
+
+
+            </div>
+
+
+
+            </div>
+        </div>
+
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
