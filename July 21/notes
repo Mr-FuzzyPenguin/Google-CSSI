@@ -21,3 +21,20 @@ To do:
   - It works in the terminal
   - Map that onto the HTML
   - Uncomment the code and analyze in script.js
+
+
+Bibliography:
+sum()
+https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+
+Object.values(quizTaker)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values
+
+Object.keys(quizTaker)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+.clickable in css
+https://stackoverflow.com/questions/4442217/css-make-a-div-clickable?answertab=trending#tab-top
+
+Adding hidden to everything
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll
