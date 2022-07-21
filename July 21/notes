@@ -1,0 +1,14 @@
+/*
+const animals =
+{
+  "bird" : "fly",
+  "cat" : "walk"
+}
+// returns true. WHAT ON EARTH?
+alert(animals["bird"]==animals.bird)
+*/
+
+Apparently you have multiple different ways of calling values to an object. You can treat an object similar to the way you would treat a dictionary in Python, where you can refer to it by calling the variable that contains the object (or dictionary, for Python-eers), and then use the key in square brackets:
+a_dict_or_object_i_suppose["something-like-this"]
+
+Still, my js code is a mess... I don't think anybody would like to read it. So my suggestion is: Don't! And if you do... Let's just hope that I come around to actually finish adding my comments and that I don't just leave it at this and give up.
