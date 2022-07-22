@@ -1,0 +1,75 @@
+
+.buttonRow {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+}
+
+.button {
+    color: #5f6368;
+    padding: 2px;
+
+}
+
+.subscribe {
+    background-color: #1a73e8;
+    border-radius: 6px;
+    color:white;
+    display:flex;
+    justify-content: center;
+    grid-row: span 0.5;
+}
+
+.subscribe:hover {
+    background-color: #185abc;
+}
+
+.titlePage {
+    padding: 0px 0px;
+}
+
+.button:hover {
+    font-weight:bold;
+    color: black;
+    border-bottom: 1px solid royalblue;
+    border-radius: 0px;
+}
+
+.dualTile {
+    display:grid;
+    grid-template-columns: 1fr 1fr
+}
+
+.dualTileUnderlined {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    color: gray;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+}
+
+
+.tripleRow {
+    display:flex;
+    flex-flow:column wrap;
+    padding:5px;
+}
+
+.pengu {
+    border-style: solid;
+    border-width:thin;
+    border-radius: 20px;
+}
+
+.pengu-title {
+    color: royalblue;
+    font-size: 1.5rem;
+}
+
+.hover-img:hover {
+    transition: transform .1s;
+    transform: scale(.99);
+    display:flex;
+    overflow:show;
+    border-radius:15px;
+}
+

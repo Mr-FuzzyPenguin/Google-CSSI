@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,300;1,400&display=swap");
+
+body {
+  padding: 30px;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+section {
+  border-bottom: 1px solid slategray;
+  padding: 0px 0px;
+}
+
+section:last-child {
+  border: none;
+}
+
+div {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+
+div h3:only-child {
+  padding-left: 20px;
+}
+
+button {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+}
+
+.card,
+.clusterCard {
+  width: 300px;
+  border: 1px solid black;
+  min-height: 400px;
+  padding: 20px;
+}
