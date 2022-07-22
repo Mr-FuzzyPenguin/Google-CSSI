@@ -1,0 +1,62 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.low-opac-blue
+{
+    background-color:rgba(50, 115, 220, 0.5);
+}
+
+.low-opac-white
+{
+    background-color:rgba(245, 245, 245,0.75);
+}
+
+.fortress {
+    background-image: url("https://lp-cms-production.imgix.net/2019-06/GettyImages-459458831_super.jpg?auto=format&q=40&ar=16%3A9&fit=crop&crop=center&fm=auto&w=2619");
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.market {
+    background-image: url("https://www.pocketwanderings.com/wp-content/uploads/2021/07/Copenhagen-Denmark.jpg");
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.arctic {
+    background-image: url("https://santaclausvillage.info/userassets/uploads/2021/09/crossing-the-arctic-circle-at-santa-claus-village-in-rovaniemi-lapland-finland-aspect-ratio-1600-760.jpg");
+    opacity : 1;
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+.church {
+    background-image: url("https://stephentravelsdotcom.files.wordpress.com/2019/07/finland_helsinki_uspenski-cathedral.jpg");
+    opacity : 1;
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.hidden {
+    visibility: hidden;
+}
