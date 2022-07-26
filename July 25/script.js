@@ -8,6 +8,8 @@ const pointsSpan = document.querySelector("#points");
 const scoreSpan = document.querySelector("#score");
 const questionDiv = document.querySelector("#question");
 
+const pointArray = [100, 200, 300, 400, 1000]
+
 // Select the buttons and input fields where users can provide inputs.
 const randomButton = document.querySelector("#random");
 const hardButton = document.querySelector("#hard");
@@ -21,74 +23,26 @@ let currentAnswer = '';
 let currentPoints = 0;
 let currentScore = 0;
 
-// Function to update the text on the board to match our variables.
-const updateBoard = () => {
-  pointsSpan.innerHTML = currentPoints;
-  scoreSpan.innerHTML = currentScore;
-  // Update the question too.
-  questionDiv.innerHTML = currentQuestion;
 
-};
-
-
-
+let temp_arr = [];
 // Generate the table!
+const tablerow = document.querySelector("#table-row")
+for (let i=0; i<5; i++)
+{
+  temp_arr.push(tablerow.innerHTML)
+}
+tablerow.innerHTML = temp_arr.join('')
 
+temp_arr = []
+for (let i=0; i<5; i++)
+{
+  temp_arr.push(tablerow.outerHTML.replaceAll("[X00]",pointArray[i]))
+}
+tablerow.outerHTML = temp_arr.join('')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Question handlers
-const getRandomQuestion = async () => {
-  const response = await fetch("https://jeopardy.wang-lu.com/api/random?count=1");
-  const data = await response.json();
-  // console.log(data)
-
-
-  currentQuestion = data[0].question;
-  currentPoints = data[0].value;
-  currentAnswer = data[0].answer;
-  updateBoard();
-};
-randomButton.addEventListener("click", getRandomQuestion);
-
-const getHardQuestion = async () => {
-  const response = await fetch("https://jeopardy.wang-lu.com/api/clues");
-  const data = await response.json();
-  const i = getRandomInt(data.length);
-  // console.log(data[i]);
-  currentQuestion = data[i].question;
-  currentPoints = data[i].value;
-  currentAnswer = data[i].answer;
-  updateBoard();
-};
-hardButton.addEventListener("click", getHardQuestion);
-
-const getCatQuestion = async () => {
-  const response = await fetch("https://jeopardy.wang-lu.com/api/clues?category=6");
-  const data = await response.json();
-  const i = getRandomInt(data.length);
-  // console.log(data[i]);
-  currentQuestion = data[i].question;
-  currentPoints = data[i].value;
-  currentAnswer = data[i].answer;
-  updateBoard();
-};
-catPunsButton.addEventListener("click", getCatQuestion);
-// End question handling
+// Delete var https://www.tutorialspoint.com/how-to-unset-a-javascript-variable
+temp_arr = undefined;
+delete(temp_arr);
 
 
 
@@ -131,10 +85,15 @@ cards.forEach((a_card) => {
   })
 
   answerInputBox.addEventListener("click", (e) => {
-    inner.classList.toggle("flip-card-inner")
-    inner.classList.toggle("back-flip-card-inner")
+    inner.classList.add("flip-card-inner")
+    inner.classList.remove("back-flip-card-inner")
   })
-  submitButton.addEventListener("click", checkAnswer)
+
+  submitButton.addEventListener("click", (e) => {
+    inner.classList.add("flip-card-inner")
+    inner.classList.remove("back-flip-card-inner")
+  })
+
   answerInputBox.addEventListener("keypress", (e) => {
 
     if (e.key === "Enter") {
