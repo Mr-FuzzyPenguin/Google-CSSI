@@ -24,6 +24,10 @@
   padding: 10px;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 #points {
   color: #ffd700;
   text-shadow: 4px 4px black;
