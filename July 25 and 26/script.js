@@ -41,7 +41,6 @@ const getQuestion = async (value,category) => {
 
   // Populate the double array
   question_array[category][value] = data[i];
-  console.log(question_array);
   // Fill the selected card with the question
   let selected_card = document.getElementById(value+'-'+category).innerHTML;
   document.getElementById(category+'-'+value).innerHTML = question;
