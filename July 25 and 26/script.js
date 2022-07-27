@@ -40,11 +40,11 @@ const getQuestion = async (value,category) => {
   const question = data[i].question;
 
   // Populate the double array
-  question_array[value][category] = data[i];
+  question_array[category][value] = data[i];
   console.log(question_array);
   // Fill the selected card with the question
   let selected_card = document.getElementById(value+'-'+category).innerHTML;
-  document.getElementById(value+'-'+category).innerHTML = question;
+  document.getElementById(category+'-'+value).innerHTML = question;
 
 // For debugging purposes, because I don't want data that yields undefined
 //   if (data[i]===undefined)
@@ -116,8 +116,10 @@ cards.forEach((a_card) => {
     let correct_answer = selectFromArray.answer.toLowerCase()
     if (["a","the","an"].includes(correct_answer.split(' ')[0]))
     {
-      correct_answer = correct_answer.split(' ').splice(1,correct_answer.length)
+      correct_answer = correct_answer.split(' ').splice(1,correct_answer.length).join(' ')
+      console.log(correct_answer)
     }
+
 
     // Check answer
     if (answerInputBox.value.toLowerCase() == correct_answer)
