@@ -3,43 +3,35 @@ const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
 
-// Select the spans & divs where we'll display outputs.
-const scoreSpan = document.querySelector("#score");
-const questionDiv = document.querySelector("#question");
 
+// Define constants
+const scoreSpan = document.querySelector("#score");
+const tablerow = document.querySelector("#table-row")
 const pointArray = [100, 200, 300, 400, 1000]
 const categoryArray = [17, 9, 19, 29, 499]
 let currentPoints = 0;
 
 
+// Generate the grid in HTML using JS!
 let temp_arr = [];
-// Generate the table!
-const tablerow = document.querySelector("#table-row")
 for (let i=0; i<5; i++)
 {
   temp_arr.push(tablerow.innerHTML.replace(`id=""`,`id="`+i+`-"`));
 }
 tablerow.innerHTML = temp_arr.join('');
-
 temp_arr = [];
 for (let i=0; i<5; i++)
 {
   temp_arr.push(tablerow.outerHTML.replaceAll("[X00]",pointArray[i]).replaceAll("-\"",'-'+i+'"'));
 }
 tablerow.outerHTML = temp_arr.join('');
-
 // Delete var https://www.tutorialspoint.com/how-to-unset-a-javascript-variable
 temp_arr = undefined;
 delete(temp_arr);
+// End HTML grid generation
 
-// let a=[
-// [1,  2,3,4,5],
-// [6,  7, 8, 9, 10],
-// [11, 12, 13, 14, 15],
-// [16, 17, 18, 19, 20],
-// [21, 22, 23, 24, 25],
-// ]
 
+// Initialize double array with questions
 let question_array = [[],[],[],[],[]]
 const getQuestion = async (value,category) => {
   const response = await fetch("https://jeopardy.wang-lu.com/api/clues?value="+pointArray[value]+"&category="+categoryArray[category]);
@@ -50,7 +42,7 @@ const getQuestion = async (value,category) => {
   // Populate the double array
   question_array[value][category] = data[i];
   console.log(question_array);
-//   Populate the cards
+  // Fill the selected card with the question
   let selected_card = document.getElementById(value+'-'+category).innerHTML;
   document.getElementById(value+'-'+category).innerHTML = question;
 
@@ -77,39 +69,57 @@ const cards = document.querySelectorAll(".flip-card")
 cards.forEach((a_card) => {
 
   const submitButton = a_card.querySelector("#submit")
-
   const inner = a_card.querySelector("#rotate-card")
   const answerInputBox = a_card.querySelector("#userAnswer");
 
+  function flipAll()
+  {
+    // Flip all cards back
+    cards.forEach((a_card) => {
+      const otherFlip = a_card.querySelector("#rotate-card");
+
+      otherFlip.classList.add("flip-card-inner")
+      otherFlip.classList.remove("back-flip-card-inner")
+    })
+  }
+
   a_card.addEventListener("click", (e) => {
+
+    // If you're toggling a different card that isn't flipped, flip all cards back...
+    if (inner.classList == "flip-card-inner")
+    {
+      flipAll()
+    }
+    // And maintain the current card
     inner.classList.toggle("flip-card-inner")
     inner.classList.toggle("back-flip-card-inner")
   })
 
-
+  //   Freezes the flipping
   function freeze_back()
   {
     inner.classList.add("flip-card-inner")
     inner.classList.remove("back-flip-card-inner")
   }
 
+  // Check answer against array if it matches response
   function check_answer()
   {
-    //     select from 2d array
-    let indexOfArray = a_card.querySelector(".question-here").id.split('-')
+    // select from 2d array
+    const indexOfArray = a_card.querySelector(".question-here").id.split('-')
     const selectFromArray = question_array[indexOfArray[0]][indexOfArray[1]]
 
-//     console.log(answerInputBox.value.toLowerCase(), '\n', selectFromArray.answer.toLowerCase())
-
+    // Find the point value of the question
     let pointVal = a_card.querySelector("#points").innerHTML
+
+    // Potentially alter correct_answer if it has "filler" words. I tried to add the medium challenge
     let correct_answer = selectFromArray.answer.toLowerCase()
-
-
     if (["a","the","an"].includes(correct_answer.split(' ')[0]))
     {
       correct_answer = correct_answer.split(' ').splice(1,correct_answer.length)
     }
 
+    // Check answer
     if (answerInputBox.value.toLowerCase() == correct_answer)
     {
       currentPoints += parseInt(pointVal)
@@ -120,10 +130,12 @@ cards.forEach((a_card) => {
       alert(`You guessed, \n[${answerInputBox.value}]\nThe correct answer is \n[${correct_answer}]`)
     }
 
+    // The points are set to 0 after you answer the question
     a_card.querySelector("#points").innerHTML = 0
     scoreSpan.innerHTML = currentPoints
-    answerInputBox.value = '';
 
+    // Clear the field at the end of every attempt!
+    answerInputBox.value = '';
   }
 
   // SUBMITS
@@ -134,7 +146,7 @@ cards.forEach((a_card) => {
     }
   })
 
-//   Submit button is triggered. Either by click, or enter keypress
+  // Submit button is triggered. Either by click, or enter keypress
   submitButton.addEventListener("click", check_answer)
 
 })
