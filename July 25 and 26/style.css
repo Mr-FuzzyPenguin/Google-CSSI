@@ -1,0 +1,143 @@
+.container {
+  max-width: 100%;
+  margin: 40px auto;
+  font-family: "Libre Baskerville", serif;
+  text-align: center;
+}
+
+.buttons {
+  padding: 20px;
+}
+
+.buttons button {
+  padding: 20px;
+}
+
+.questionCard #question {
+  margin: 10px;
+  text-shadow: 1px 1px black;
+  font-size: 1.2rem;
+}
+
+.center {
+  margin: auto;
+  padding: 10px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#points {
+  color: #ffd700;
+  text-shadow: 4px 4px black;
+  font-size: 100px;
+}
+
+
+
+
+
+/* columns and rows */
+
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Forked from:  */
+/* https://www.w3schools.com/howto/howto_css_flip_card.asp */
+
+
+ /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 420px;
+  height: 190px;
+  perspective: 1500px; /* Remove this if you don't want the 3D effect */
+}
+
+.flip-card:hover { cursor: pointer; }
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+}
+
+.back-flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-card .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.back-flip-card .back-flip-card-inner {
+  transform: rotateY(-180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #060ce9;
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: #060ce9;
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
